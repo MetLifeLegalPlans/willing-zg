@@ -21,7 +21,6 @@ jobs:
           pip install poetry
           poetry install
           pip install --user .
-          pip install awsebcli
       - name: Create new zygoat project
         run: zg new test
       - name: Spin up containers

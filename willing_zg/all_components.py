@@ -11,4 +11,5 @@ class AllComponents(Component):
     pass
 
 
-all_components = AllComponents(sub_components=[custom_server, deployment, email, simple_jwt, token_util])
+# excluding custom_server for now - causes the github workflow to fail to due calling 'eb init'
+all_components = AllComponents(sub_components=[deployment, email, simple_jwt, token_util])
