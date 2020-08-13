@@ -6,6 +6,8 @@ from .tokens import token_util
 from .django_willing_zg import django_willing_zg
 from .google_analytics import google_analytics
 from .get_env import get_env_util
+from .secrets_manager import secrets_manager_util
+from .secrets import secrets_util
 
 
 class AllComponents(Component):
@@ -20,5 +22,7 @@ all_components = AllComponents(
         get_env_util,
         django_willing_zg,
         google_analytics,
+        secrets_manager_util,
+        secrets_util,
     ]
 )
