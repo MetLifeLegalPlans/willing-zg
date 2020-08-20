@@ -30,6 +30,9 @@ support_settings = [
     'SUPPORT_PHONE_NUMBER = "+1 (855) 943-4177"',
     'SUPPORT_EMAIL_ADDRESS = "clientservice@legalplans.com"',
     'PANEL_EMAIL_ADDRESS = "panel@legalplans.com"',
+    'FB_SUPPORT_PHONE_NUMBER = "800-535-2348"',
+    'ML_LEGAL_ASSIST_PHONE_NUMBER = "800-491-6985"',
+    'MEMBERS_PORTAL = "members.legalplans.com"',
 ]
 
 
