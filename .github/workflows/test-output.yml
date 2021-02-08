@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: '13.x'
       - name: Append path
-        run: echo "::add-path::$HOME/.local/bin"
+        run: echo "$HOME/.local/bin" >> $GITHUB_PATH
       - name: Install dependencies
         run: |
           pip install poetry
