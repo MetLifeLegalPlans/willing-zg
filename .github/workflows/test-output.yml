@@ -13,7 +13,7 @@ jobs:
           architecture: 'x64'
       - uses: actions/setup-node@v1
         with:
-          node-version: '13.x'
+          node-version: '14.x'
       - name: Append path
         run: echo "$HOME/.local/bin" >> $GITHUB_PATH
       - name: Install dependencies
