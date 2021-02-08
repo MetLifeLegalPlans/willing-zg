@@ -7,6 +7,7 @@ from importlib_metadata import version
 from .django_willing_zg import django_willing_zg
 from .google_analytics import google_analytics
 from .chat import chat
+from .idle_session_handler import idle_session_handler
 
 __all__ = [
     "all_components",
@@ -16,7 +17,8 @@ __all__ = [
     "token_util",
     "django_willing_zg",
     "google_analytics",
-    "chat"
+    "chat",
+    "idle_session_handler"
 ]
 
 __version__ = version("willing_zg")
