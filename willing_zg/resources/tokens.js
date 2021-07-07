@@ -2,16 +2,15 @@ import axios from 'axios';
 
 const TOKEN_REFRESH_INTERVAL = 4 * 60 * 1000; // 4 min in ms
 
-export const withReturn = (url, includePath = true) => {
+export const withReturn = (url, includePath = true, home) => {
   if (typeof window === 'undefined') {
     // server side rendering, so we don't know where to return to
     return url;
   }
   const next = includePath ? window.location.href : window.location.origin;
-  const home = window.location.origin;
   const params = new URLSearchParams();
   params.append('next', next);
-  params.append('home', home);
+  params.append('home', home || window.location.origin);
   return `${url}?${params.toString()}`;
 };
 
