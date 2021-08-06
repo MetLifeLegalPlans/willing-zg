@@ -61,7 +61,8 @@ const IdleSessionHandler = ({ warningTime, expirationTime, expirationHandler }) 
 
   return (
     <Modal open={showWarning} title="Expiring session due to inactivity">
-      Your session will automatically expire in {Math.floor(counter / 1000)} seconds.
+      Your session will automatically expire due to inactivity in {Math.floor(counter / 1000)} seconds. To continue
+      your session, press any key or move your mouse.
     </Modal>
   );
 };
