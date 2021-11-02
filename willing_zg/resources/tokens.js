@@ -14,12 +14,14 @@ export const withReturn = (url, includePath = true, home) => {
   return `${url}?${params.toString()}`;
 };
 
+const noOp = () => null;
+
 class TokenFetcher {
   constructor() {
     this.portunusUrl = '';
     this.fetchFunction = this.defaultFetch;
     this.onError = this.defaultOnError;
-    this.onSuccess = this.defaultOnSuccess;
+    this.onSuccess = noOp;
     this.currentToken = '';
     this.timerId = null;
     this.tokenCallbacks = [];
@@ -45,8 +47,6 @@ class TokenFetcher {
   defaultOnError() {
     window.location.replace(this.loginUrl);
   }
-
-  defaultOnSuccess = () => null;
 
   get accessToken() {
     return new Promise(resolve => {
@@ -105,7 +105,7 @@ class TokenFetcher {
   start(portunusUrl, fetchFn, onSuccess, onError) {
     this.portunusUrl = portunusUrl || this.portunusUrl;
     this.fetchFunction = fetchFn || this.defaultFetch;
-    this.onSuccess = onSuccess || this.defaultOnSuccess;
+    this.onSuccess = onSuccess || noOp;
     this.onError = onError || this.defaultOnError;
     if (!this.timerId) {
       this.startAutoFetch();
