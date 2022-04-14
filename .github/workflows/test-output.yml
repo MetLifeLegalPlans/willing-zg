@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v1
       - uses: actions/setup-python@v1
         with:
-          python-version: '3.7'
+          python-version: '3.9'
           architecture: 'x64'
       - uses: actions/setup-node@v1
         with:
@@ -23,9 +23,7 @@ jobs:
           pip install --user .
       - name: Create new zygoat project
         run: zg new test
-      - name: Spin up containers
-        run: scripts/ci-start.sh
       - name: Backend linting
-        run: docker-compose exec -T backend flake8
+        run: docker-compose run --rm -T backend poetry run flake8
       - name: Frontend linting
-        run: docker-compose exec -T frontend yarn eslint
+        run: docker-compose run --rm -T frontend yarn lint
