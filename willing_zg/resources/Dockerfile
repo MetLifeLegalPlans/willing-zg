@@ -1,14 +1,13 @@
-FROM node:14
+FROM 818831340115.dkr.ecr.us-east-1.amazonaws.com/python:3.10
+
+RUN pip install --upgrade pip poetry
 
 RUN mkdir /code
 WORKDIR /code
 
-COPY package.json yarn.lock ./
-RUN yarn install
+COPY poetry.lock pyproject.toml /code/
+RUN poetry install --no-dev
 
 COPY . .
 
-RUN yarn build
-
-EXPOSE 3000
-CMD yarn start -p 3000
+CMD poetry run ./manage.py wait_for_db && poetry run ./manage.py migrate && poetry run ./manage.py createcachetable && poetry run gunicorn -w 4 -b 0.0.0.0:3000 backend.asgi -k zygoat_django.uvicorn_worker.ZygoatUvicornWorker
