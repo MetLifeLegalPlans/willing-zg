@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import root from 'window-or-global';
 
-import Modal from '@wui/Modal';
+import Modal from '@bequestinc/wui/Modal';
 
 const activeEvents = ['mousemove', 'click', 'scroll', 'keypress'];
 
