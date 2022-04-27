@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const TOKEN_REFRESH_INTERVAL = 4 * 60 * 1000; // 4 min in ms
 
+// eslint-disable-next-line default-param-last
 export const withReturn = (url, includePath = true, home) => {
   if (typeof window === 'undefined') {
     // server side rendering, so we don't know where to return to
@@ -46,6 +47,7 @@ class TokenFetcher {
     window.location.replace(this.loginUrl);
   }
 
+  // eslint-disable-next-line class-methods-use-this
   defaultOnSuccess = () => null;
 
   get accessToken() {

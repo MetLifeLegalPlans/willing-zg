@@ -2,7 +2,7 @@ FROM 818831340115.dkr.ecr.us-east-1.amazonaws.com/python:3.10
 
 RUN pip install --upgrade pip poetry
 
-RUN mkdir /code
+RUN mkdir -p /code
 WORKDIR /code
 
 COPY poetry.lock pyproject.toml /code/
